@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="59e8d97e1124402ebb91b15498a43292" Name="Diagram1">
+        <EntityTypeShape EntityType="inventario2021Model.cliente" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventario2021Model.compra" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventario2021Model.producto" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventario2021Model.producto_compra" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventario2021Model.producto_imagen" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventario2021Model.proveedor" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventario2021Model.roles" Width="1.5" PointX="0.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventario2021Model.usuario" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventario2021Model.usuariorol" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
+        <AssociationConnector Association="inventario2021Model.FK__compra__id_clien__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="inventario2021Model.FK__compra__id_usuar__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="inventario2021Model.FK__producto___id_co__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="inventario2021Model.FK__producto___id_pr__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="inventario2021Model.FK__producto___id_pr__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="inventario2021Model.FK__producto__id_pro__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="inventario2021Model.FK__usuarioro__idRol__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="inventario2021Model.FK__usuarioro__idUsu__440B1D61" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
