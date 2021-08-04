@@ -26,5 +26,10 @@ namespace ASP2236903.Controllers
 
             return View();
         }
+
+        public ActionResult Biografia()
+        {
+            return View();
+        }
     }
 }
