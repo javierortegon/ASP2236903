@@ -1,0 +1,58 @@
+﻿@model ASP2236903.Models.usuario
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>usuario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apellido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_nacimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_nacimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.password)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

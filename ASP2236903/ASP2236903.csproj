@@ -235,6 +235,8 @@
     <Content Include="Views\Prueba\Index.cshtml" />
     <Content Include="Views\Usuario\Index.cshtml" />
     <Content Include="Views\Usuario\Create.cshtml" />
+    <Content Include="Views\Usuario\Details.cshtml" />
+    <Content Include="Views\Usuario\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
