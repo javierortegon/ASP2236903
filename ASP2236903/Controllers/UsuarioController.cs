@@ -12,6 +12,7 @@ namespace ASP2236903.Controllers
         // GET: Usuario
         public ActionResult Index()
         {
+            //conexion a la base de datos
             using (var db = new inventario2021Entities()) 
             { 
                 return View(db.usuario.ToList());
