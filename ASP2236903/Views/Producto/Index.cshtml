@@ -49,9 +49,19 @@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
             @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            @Html.ActionLink("Delete", "Delete", new { id=item.id }, new { @class = "linkDelete" })
         </td>
     </tr>
 }
 
 </table>
+
+@section scripts{
+    <script>
+        $(".linkDelete").click(function (event) {
+            if (!confirm('¿Esta seguro de eliminar?')) {
+                event.preventDefault();
+            }
+        })
+    </script>
+    }
