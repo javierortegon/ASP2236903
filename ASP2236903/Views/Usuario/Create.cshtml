@@ -4,64 +4,66 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Registrar</h2>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>usuario</h4>
+        <h4>Usuario</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.nombre, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
-            </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="nombre">Nombre Usuario:</label>
+        @*@Html.LabelFor(model => model.nombre, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
         </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="apellido">Apellido Usuario:</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.apellido, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.apellido, "", new { @class = "text-danger" })
+        </div>
+    </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.apellido, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="fecha_nacimiento">Fecha Nacimiento:</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.apellido, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.apellido, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.fecha_nacimiento, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.fecha_nacimiento, new { htmlAttributes = new { @class = "form-control" } })
+                <input class="form-control text-box single-line" data-val="true" data-val-date="El campo fecha_nacimiento debe ser una fecha." data-val-required="El campo fecha_nacimiento es obligatorio." id="fecha_nacimiento" name="fecha_nacimiento" type="date" value="">
                 @Html.ValidationMessageFor(model => model.fecha_nacimiento, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="fecha_nacimiento">Correo Electronico:</label>
+
             <div class="col-md-10">
-                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", @type="email" } })
                 @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="fecha_nacimiento">Contraseña:</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control", @type="password" } })
                 @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Registrar" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Ver todos", "Index")
 </div>
