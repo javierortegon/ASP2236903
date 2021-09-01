@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ASP2236903.Models;
+using Rotativa;
 
 namespace ASP2236903.Controllers
 {
@@ -144,5 +145,11 @@ namespace ASP2236903.Controllers
                 return View();
             }
         }
+
+        public ActionResult PdfReporte()
+        {
+            return new ActionAsPdf("Index") { FileName = "reporte.pdf" };
+        }
+
     }
 }
