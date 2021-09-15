@@ -139,6 +139,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BaseModelo.cs" />
+    <Compile Include="Models\UsuarioIndex.cs" />
     <Compile Include="Models\cliente.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -258,6 +260,8 @@
     <Content Include="Views\Shared\Plantilla.cshtml" />
     <Content Include="Views\Producto\Reporte.cshtml" />
     <Content Include="Views\Proveedor\uploadCSV.cshtml" />
+    <Content Include="Views\Usuario\PaginadorIndex.cshtml" />
+    <Content Include="Views\Shared\Paginador.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

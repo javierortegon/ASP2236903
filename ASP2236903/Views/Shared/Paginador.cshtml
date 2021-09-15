@@ -1,0 +1,72 @@
+﻿@model ASP2236903.Models.BaseModelo
+
+@{ 
+    var cantidadPaginas = (int)Math.Ceiling((double)Model.Total / Model.RecordsPage);
+}
+
+<ul>
+    @if (Model.ActualPage == 1)
+    {
+        Model.valueQueryString["pagina"] = 1;
+        <li class="disabled">@Html.ActionLink("Anterior", null, Model.valueQueryString)</li>
+    }
+    else
+    {
+        Model.valueQueryString["pagina"] = Model.ActualPage - 1;
+        <li class="">@Html.ActionLink("Anterior", null, Model.valueQueryString)</li>
+    }
+
+    @if (Model.ActualPage == cantidadPaginas)
+    {
+        Model.valueQueryString["pagina"] = cantidadPaginas;
+        <li class="disabled">@Html.ActionLink("Siguiente", null, Model.valueQueryString)</li>
+    }
+    else
+    {
+        Model.valueQueryString["pagina"] = Model.ActualPage + 1;
+        <li class="">@Html.ActionLink("Siguiente", null, Model.valueQueryString)</li>
+    }
+
+</ul>
+
+@{
+    int Inicial = 1;
+    var radio = 3;
+    var cantidadMaximaDePaginas = radio * 2 - 1;
+    int Final = (cantidadPaginas > cantidadMaximaDePaginas) ? cantidadMaximaDePaginas : cantidadPaginas;
+
+    if (Model.ActualPage > radio + 1)
+    {
+        Inicial = Model.ActualPage - radio;
+
+        if (cantidadPaginas > Model.ActualPage + radio)
+        {
+            Final = Model.ActualPage + radio;
+        }
+        else
+        {
+            Final = cantidadPaginas;
+        }
+    }
+
+}
+
+<ul class="pagination">
+    @{Model.valueQueryString["pagina"] = 1; }
+
+    <li>@Html.ActionLink("Primera", null, Model.valueQueryString)</li>
+    @for (int i = Inicial; i <= Final; i++)
+    {
+        Model.valueQueryString["pagina"] = i;
+        if (i == Model.ActualPage)
+        {
+            <li class="active">@Html.ActionLink(i.ToString(), null, Model.valueQueryString)</li>
+        }
+        else
+        {
+            <li>@Html.ActionLink(i.ToString(), null, Model.valueQueryString)</li>
+        }
+    }
+    @{Model.valueQueryString["pagina"] = cantidadPaginas; }
+    <li>@Html.ActionLink("Ultima", null, Model.valueQueryString)</li>
+</ul>
