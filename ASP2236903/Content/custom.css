@@ -1,0 +1,16 @@
+﻿body {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.navbar-nav  li  a {
+    color: red !important; 
+}
+
+.textoHome{
+    color: red;
+}
+
+.table-hover > tbody > tr:hover {
+    background-color:red !important;
+}
