@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Cargar Imagen";
+}
+
+<h2>Cargar CSV</h2>
+
+@using (Html.BeginForm("cargarImagen", "Producto", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <label class="control-label col-md-2">Cargar CSV</label>
+        <div class="col-md-10">
+            <input type="file" name="fileForm" class="form-control" required />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Id Producto</label>
+        <div class="col-md-10">
+            <input type="number" name="producto" class="form-control" required />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <input type="submit" value="Enviar" />
+        </div>
+    </div>
+
+}
+
+<img src="@Url.Content("~/Uploads/Imagenes/firma.png")" alt="Image" />

@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using ASP2236903.Models;
 using Rotativa;
+using System.IO;
+using ASP2236903.Filtros;
 
 namespace ASP2236903.Controllers
 {
@@ -67,7 +69,10 @@ namespace ASP2236903.Controllers
         {
             using (var db = new inventario2021Entities())
             {
-                return View(db.producto.Find(id));
+                var producto = db.producto.Find(id);
+                var imagen = db.producto_imagen.Where(e => e.id_producto == producto.id).FirstOrDefault();
+                ViewBag.imagen = imagen.imagen;
+                return View(producto);
             }
         }
 
@@ -149,6 +154,58 @@ namespace ASP2236903.Controllers
         public ActionResult PdfReporte()
         {
             return new ActionAsPdf("Index") { FileName = "reporte.pdf" };
+        }
+
+        [AuthorizeUser(idRol: 1)]
+        public ActionResult cargarImagen()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult cargarImagen(int producto, HttpPostedFileBase fileForm)
+        {
+            //string para guardar la ruta
+            string filePath = string.Empty;
+            string name = "";
+
+            //condicion para saber si el archivo llego
+            if (fileForm != null)
+            {
+                //ruta de la carpeta que guardara el archivo
+                string path = Server.MapPath("~/Uploads/Imagenes/");
+
+                //condicion para saber si la carpeta uploads existe
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+
+                name = Path.GetFileName(fileForm.FileName);
+                //obtener el nombre del archivo
+                filePath = path + Path.GetFileName(fileForm.FileName);
+
+                //obtener la extension del archivo
+                string extension = Path.GetExtension(fileForm.FileName);
+
+                //guardar el archivo
+                fileForm.SaveAs(filePath);
+
+                
+            }
+
+
+            using (var db = new inventario2021Entities())
+            {
+                var imagenProducto = new producto_imagen();
+                imagenProducto.id_producto = producto;
+                imagenProducto.imagen = "/Uploads/Imagenes/" + name;
+                db.producto_imagen.Add(imagenProducto);
+                db.SaveChanges();
+            }
+
+                return View();
         }
 
     }
