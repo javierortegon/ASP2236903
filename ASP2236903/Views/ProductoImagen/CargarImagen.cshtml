@@ -1,0 +1,26 @@
+﻿<h2>Cargar Imagen Producto</h2>
+
+@using (Html.BeginForm("CargarImagen", "ProductoImagen", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <label class="control-label col-md-2">Producto</label>
+        <div class="col-md-10">
+            <input type="number" name="producto" class="form-control" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Imagen</label>
+        <div class="col-md-10">
+            <input type="file" name="imagen" class="form-control" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <input type="submit" value="Enviar" class="form-control" />
+        </div>
+    </div>
+
+}

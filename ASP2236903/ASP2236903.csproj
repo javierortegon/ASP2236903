@@ -133,6 +133,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductoController.cs" />
+    <Compile Include="Controllers\ProductoImagenController.cs" />
     <Compile Include="Controllers\ProveedorController.cs" />
     <Compile Include="Controllers\PruebaController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -267,6 +268,7 @@
     <Content Include="Views\Shared\Paginador.cshtml" />
     <Content Include="Views\Producto\cargarImagen.cshtml" />
     <Content Include="Uploads\datos.csv" />
+    <Content Include="Views\ProductoImagen\CargarImagen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
